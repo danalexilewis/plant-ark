@@ -126,7 +126,7 @@ flowchart TB
 | Hub | 5V (USB) / mains | Under tray, dry | Raspberry Pi or mini PC |
 | PlantBus | 24V DC | Along tray edge | Fused per module, reverse-polarity protected |
 | Module pump | 12V DC (from module regulator) | Submerged cassette | Brushless submersible |
-| Module valves | 24V or 12V (module-dependent) | Valve bay | NC solenoid |
+| Module valves | 12V DC (from module 24V→12V buck) | Valve bay | NC solenoid — see [Hardware BOM](../references/hardware-bom.md) |
 | Grow light | Mains AC | Above plants, via certified plug | No DIY mains in tent |
 | Fan | Mains AC | Tent vent, via certified plug | Manual or scheduled |
 

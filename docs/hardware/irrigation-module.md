@@ -85,7 +85,7 @@ flowchart TB
     end
 
     V24 --> Reg
-    V24 --> ValveDrv
+    Reg --> ValveDrv
     Reg --> Pump
     CAN --> CANTrans --> MCU
     MCU --> ValveDrv --> V1 & V2 & V3 & V4

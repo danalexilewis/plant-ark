@@ -6,22 +6,28 @@ Terms and acronyms used across Plant Ark documentation.
 |------|------------|
 | **Plant Ark** | The product name for the fold-out indoor nursery cart system |
 | **Home Plant Hub** | The central controller — discovers modules, runs automation, serves local UI, logs data |
-| **PlantBus** | Internal modular bus connecting the Hub to irrigation and environment modules (24V DC + CAN data) |
+| **PlantBus** | Internal modular bus connecting the Hub to irrigation modules (24V DC + CAN data) |
 | **Irrigation module** | A clip-on 4-channel watering unit with pump, filter cassette, valves, and moisture sensors |
-| **Environment module** | Optional module for tent sensors and light/fan outputs (v1 keeps this simple) |
+| **Environment module** | Future PlantBus module for tent sensors and light/fan outputs. **v1 uses a BME280 on the Hub** — see [system architecture](architecture/system-architecture.md) |
 | **Channel** | One of four watering outputs on an irrigation module; logical ID format: `{moduleId}/{channelNumber}` |
 | **Plant deck** | Removable insert above the reservoir supporting pots, seedling cells, or capillary mats |
 | **Reservoir tray** | Opaque drop-in tray holding recirculating water/nutrient solution |
 | **Pump/filter cassette** | Removable submerged unit containing pump and filtration stack |
 | **Seedling mode** | Tray divided into watering zones; each channel waters a section of seedlings |
 | **Plant mode** | Each channel waters one pot |
-| **Moisture norm** | Normalized soil moisture reading (0.0–1.0) from a capacitive or resistive sensor |
+| **Moisture norm** | Normalized soil moisture reading (0.0–1.0) from a capacitive sensor |
 | **Dose** | A timed watering burst (`doseMs` duration) sent to one channel |
 | **Soak wait** | Delay after watering before re-measuring moisture (`soakWaitMinutes`) |
 | **Quiet hours** | Time window when automated watering is suppressed unless critical |
-| **Global watering lock** | Hub-level mutex ensuring only one module waters at a time |
+| **Global watering lock** | Hub-level mutex ensuring only one active watering command at a time |
 | **HELLO** | PlantBus message sent by a module on power-up to announce identity |
 | **IDENTIFY** | PlantBus command / physical button press to highlight a module in the UI |
+| **Persona** | A representative user profile — see [personas](../product/personas.md) |
+| **JTBD** | Jobs-to-be-done — what a user hires the product to accomplish |
+| **NFR** | Non-functional requirement — measurable quality (performance, setup time, etc.) — see [NFR doc](../product/non-functional-requirements.md) |
+| **CMSR** | Channel moisture success rate — north-star metric — see [success metrics](../product/success-metrics.md) |
+| **Hazard** | A potential source of harm — see [hazard analysis](../risks/hazard-analysis.md) |
+| **Residual risk** | Risk remaining after controls are applied |
 | **EARS** | Easy Approach to Requirements Syntax — structured natural-language requirements |
 | **CAN** | Controller Area Network — preferred data bus for PlantBus |
 | **NC valve** | Normally-closed solenoid valve — closed when de-energised (fail-safe) |
@@ -39,9 +45,14 @@ Terms and acronyms used across Plant Ark documentation.
 | UI | Local web dashboard served by the Hub |
 | MVP | Minimum viable product (software and hardware acceptance criteria) |
 | SDD | Spec-driven development |
+| FMEA | Failure Mode and Effects Analysis |
+| RPN | Risk Priority Number (S × O × D) in hazard analysis |
+| BOM | Bill of materials — [hardware BOM](references/hardware-bom.md) is canonical for prototype parts |
 
 ## Related documents
 
 - [Constitution](../constitution.md)
-- [System architecture](architecture/system-architecture.md)
+- [Product layer](../product/README.md)
+- [Onboarding](onboarding.md)
 - [PlantBus overview](protocol/plantbus-overview.md)
+- [Timing and alerting](references/timing-and-alerting.md)

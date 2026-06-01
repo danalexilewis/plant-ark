@@ -40,3 +40,13 @@ Feature: Environment and light control
     When the operator opens the dashboard
     Then the UI shall display tent temperature 19.1 °C
     And the UI shall display humidity 68%
+
+  Scenario: Humidity low alert
+    Given the environment sensor reports humidity_percent 35
+    When the Hub processes the sensor reading
+    Then the Hub shall create a warning alert type humidity_low
+
+  Scenario: Humidity high alert
+    Given the environment sensor reports humidity_percent 88
+    When the Hub processes the sensor reading
+    Then the Hub shall create a warning alert type humidity_high

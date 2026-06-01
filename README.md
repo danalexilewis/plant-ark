@@ -20,8 +20,23 @@ This repository is a **spec-driven development (SDD)** project. The current deli
 | 8 | Feature specs 006–009 (env, mesh, UI) | Complete |
 | 9 | Safety + acceptance criteria | Complete |
 | 10 | Traceability + roadmap | Complete |
+| 11 | Product layer (personas, journeys, competitive, NFRs, metrics) | Complete |
+| 12 | Risk register + hazard analysis | Complete |
+| 13 | Onboarding overhaul (Day 1 / Week 1 / first contribution) | Complete |
+| 14 | Consistency fixes (pinout, safety IDs, timing) | Complete |
 
 ## Quick navigation
+
+### Getting started
+
+- [Onboarding guide](docs/onboarding.md) — start here if you're new to the project
+  - [Day 1](docs/onboarding/day-1.md) · [Week 1](docs/onboarding/week-1.md) · [First contribution](docs/onboarding/first-contribution.md)
+
+### Product and risk
+
+- [Product layer](product/README.md) — why, who, journeys, differentiation, metrics
+- [Product brief](product/product-brief.md) · [Personas](product/personas.md) · [Competitive landscape](product/competitive-landscape.md)
+- [Risk register](risks/risk-register.md) · [Hazard analysis](risks/hazard-analysis.md)
 
 ### Principles and governance
 
@@ -38,7 +53,7 @@ This repository is a **spec-driven development (SDD)** project. The current deli
 | Data model | [Entities](docs/data-model/entities.md) |
 | Safety | [Safety requirements](docs/safety/safety-requirements.md) · [Electrical](docs/safety/electrical-safety.md) · [Water quality](docs/safety/water-quality.md) |
 | Integrations | [Meshtastic](docs/integrations/meshtastic.md) |
-| References | [Component catalog](docs/references/component-catalog.md) · [External standards](docs/references/external-standards.md) |
+| References | [Component catalog](docs/references/component-catalog.md) · [Hardware BOM](docs/references/hardware-bom.md) · [Timing and alerting](docs/references/timing-and-alerting.md) · [External standards](docs/references/external-standards.md) |
 
 ### Feature specs (`specs/`)
 
@@ -61,12 +76,14 @@ See [specs/README.md](specs/README.md) for the full feature index.
 - [Software MVP acceptance](acceptance/software-mvp.md)
 - [Hardware MVP acceptance](acceptance/hardware-mvp.md)
 - [Traceability matrix](acceptance/traceability.md)
-- [V1 scope](roadmap/v1-scope.md) · [Open questions](roadmap/open-questions.md) · [Non-goals](roadmap/non-goals.md) · [Future](roadmap/future.md)
+- [V1 scope](roadmap/v1-scope.md) · [Open questions](roadmap/open-questions.md) · [Non-goals](roadmap/non-goals.md) · [Future](roadmap/future.md) · [Commercialisation](roadmap/commercialisation.md)
 
 ## Methodology
 
 This project follows lightweight spec-driven development:
 
+- **Product layer** — why and for whom (`product/`)
+- **Risk register** — project and safety risks (`risks/`)
 - **Constitution** — non-negotiable principles ([constitution.md](constitution.md))
 - **Reference docs** — what the system *is* (`docs/`)
 - **Feature specs** — how the system *behaves* (`specs/`), each with:

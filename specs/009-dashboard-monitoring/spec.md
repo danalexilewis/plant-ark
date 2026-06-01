@@ -17,7 +17,7 @@ The local web UI dashboard provides a mobile-friendly overview of system status,
 
 ### Ubiquitous
 
-- REQ-DSH-001 (Ubiquitous): The dashboard shall display system status (ok, warning, critical).
+- REQ-DSH-001 (Ubiquitous): The dashboard shall display system status (ok, warning, critical) computed per [timing and alerting reference](../../docs/references/timing-and-alerting.md#system-status-aggregation).
 - REQ-DSH-002 (Ubiquitous): The dashboard shall display reservoir level and water temperature.
 - REQ-DSH-003 (Ubiquitous): The dashboard shall display tent temperature and humidity when an environment sensor is available.
 - REQ-DSH-004 (Ubiquitous): The dashboard shall display online module count and list.

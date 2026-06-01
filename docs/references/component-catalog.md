@@ -1,15 +1,17 @@
 # Component Catalog
 
-Reference component classes and selection criteria for Plant Ark v1 prototype. Specific SKUs are not specified — select from available suppliers at build time.
+Reference component **classes** and selection criteria for Plant Ark v1. This document describes *what kinds of parts* the system needs and why.
+
+**For specific SKUs, pricing, GPIO assignments, and wiring diagrams, use the canonical [Hardware BOM](hardware-bom.md).** When the catalog and BOM disagree, the BOM wins for prototype builds.
 
 ## Irrigation module components
 
 | Component class | Selection criteria | Qty per module | Notes |
 |-----------------|-------------------|----------------|-------|
-| MCU | ARM Cortex-M0+ or ESP32-C3; CAN transceiver onboard or external | 1 | Local safety firmware |
+| MCU | ESP32-S3 (dev) / ESP32-S3-WROOM (production); CAN via SN65HVD230 | 1 | Local safety firmware — see BOM |
 | CAN transceiver | ISO 11898 compatible (e.g. TJA1050, MCP2551) | 1 | 3.3V or 5V logic |
 | 12V brushless submersible pump | 200–400 L/h, quiet, 12V DC | 1 | In filter cassette |
-| NC solenoid valve | 12V or 24V DC, normally closed, food-safe wetted materials | 4 | One per channel |
+| NC solenoid valve | 12V DC normally closed (v1 prototype); food-safe wetted materials preferred | 4 | One per channel — see [Hardware BOM](hardware-bom.md) for U.S. Solid USS2-00005 |
 | Moisture sensor | Capacitive soil moisture sensor with analog output | 4 | One per channel |
 | Water level sensor | Float switch or capacitive level sensor | 1 | Low-level detection |
 | Leak sensor | Conductive leak detection pad or rope sensor | 1 | Under-tray or module base |
@@ -80,6 +82,7 @@ Reference component classes and selection criteria for Plant Ark v1 prototype. S
 
 ## Related documents
 
+- [Hardware BOM](hardware-bom.md) — **canonical prototype parts list**
 - [Irrigation module](../hardware/irrigation-module.md)
 - [Pump/filter cassette](../hardware/pump-filter-cassette.md)
 - [PlantBus physical layer](../protocol/plantbus-physical-layer.md)

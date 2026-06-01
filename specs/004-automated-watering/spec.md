@@ -29,7 +29,7 @@ The automation engine periodically evaluates all enabled channels with assigned 
 
 - REQ-AUT-005 (Unwanted): If the plant daily dose count has reached maxDosesPerDay, then the automation engine shall skip watering for that plant until the next calendar day.
 - REQ-AUT-006 (Unwanted): If the channel is disabled, then the automation engine shall skip that channel.
-- REQ-AUT-007 (Unwanted): If the assigned module is offline, then the automation engine shall skip that channel and raise a module_offline alert.
+- REQ-AUT-007 (Unwanted): If the assigned module is offline, then the automation engine shall skip that channel. Alerting is handled by REQ-ALT-003 after 5 minutes continuous offline — see [timing and alerting reference](../../docs/references/timing-and-alerting.md).
 
 ### Ubiquitous
 

@@ -21,6 +21,8 @@ v1 environment control is simple: light schedules via certified smart plug, temp
 - REQ-ENV-002 (Event-driven): When the light schedule end time is reached, the Hub shall send light_off to the configured smart plug.
 - REQ-ENV-003 (Event-driven): When air temperature falls below 12 °C, the Hub shall create a warning temperature_low alert.
 - REQ-ENV-004 (Event-driven): When air temperature exceeds 30 °C, the Hub shall create a warning temperature_high alert.
+- REQ-ENV-009 (Event-driven): When relative humidity falls below 40 %, the Hub shall create a warning humidity_low alert.
+- REQ-ENV-010 (Event-driven): When relative humidity exceeds 85 %, the Hub shall create a warning humidity_high alert.
 - REQ-ENV-005 (Event-driven): When the operator toggles the fan manually, the Hub shall send fan_on or fan_off to the configured smart plug.
 
 ### Ubiquitous
@@ -40,6 +42,8 @@ v1 environment control is simple: light schedules via certified smart plug, temp
 | REQ-ENV-002 | Light turns off at schedule end | Scenario: Light schedule turns off |
 | REQ-ENV-005 | Manual fan toggle works | Scenario: Manual fan control |
 | REQ-ENV-003 | Low temperature alert | Scenario: Temperature low alert |
+| REQ-ENV-009 | Low humidity alert | Scenario: Humidity low alert |
+| REQ-ENV-010 | High humidity alert | Scenario: Humidity high alert |
 
 ## Related artifacts
 

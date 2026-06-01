@@ -39,7 +39,8 @@ Maps every requirement ID to its feature spec, Gherkin scenario, sequence diagra
 | REQ-CHN-005 | 002 | Create plant profile | Assign plant to channel | SW-004 |
 | REQ-CHN-006 | 002 | Disable channel | Automation reads assignment | — |
 | REQ-CHN-007 | 002 | Unassign plant from channel | — | — |
-| REQ-CHN-008 | 002 | — | — | — |
+| REQ-CHN-008 | 002 | Quiet hours critical override waters plant | — | — |
+| REQ-CHN-009 | 002 | Set channel mode | — | — |
 
 ## 003 — Manual watering
 
@@ -64,19 +65,19 @@ Maps every requirement ID to its feature spec, Gherkin scenario, sequence diagra
 | REQ-AUT-004 | 004 | Quiet hours suppress watering | — | — |
 | REQ-AUT-005 | 004 | Daily max reached | Automation evaluation loop | SW-009 |
 | REQ-AUT-006 | 004 | Automation skips disabled channel | — | — |
-| REQ-AUT-007 | 004 | — | — | — |
-| REQ-AUT-008 | 004 | Automation evaluation loop | Automation evaluation loop | — |
+| REQ-AUT-007 | 004 | Automation skips offline module | — | — |
+| REQ-AUT-008 | 004 | Automation waters dry plant | Automation evaluation loop | — |
 | REQ-AUT-009 | 004 | Automation waters dry plant | Automation evaluation loop | — |
 
 ## 005 — Safety interlocks
 
 | REQ ID | Feature | Gherkin scenario | Sequence | MVP |
 |--------|---------|------------------|----------|-----|
-| REQ-SAF-001 | 005 | Module safe state on bus timeout | Module bus timeout safe state | HW-011 |
+| REQ-SAF-001 | 005 | — | — | HW-011 |
 | REQ-SAF-002 | 005 | Module safe state on bus timeout | Module bus timeout safe state | HW-012 |
 | REQ-SAF-003 | 005 | Leak blocks all watering | Leak detection and global block | HW-009, SW-010 |
 | REQ-SAF-004 | 005 | Low reservoir blocks watering | — | HW-010, SW-011 |
-| REQ-SAF-005 | 005 | Global lock prevents concurrent watering | Global watering lock | HW-004 |
+| REQ-SAF-005 | 005 | — | — | HW-004 |
 | REQ-SAF-006 | 005 | Module enforces max pump duration | — | — |
 | REQ-SAF-007 | 005 | — | — | — |
 | REQ-SAF-008 | 005 | Global lock prevents concurrent watering | Global watering lock | — |
@@ -90,11 +91,12 @@ Maps every requirement ID to its feature spec, Gherkin scenario, sequence diagra
 | REQ ID | Feature | Gherkin scenario | Sequence | MVP |
 |--------|---------|------------------|----------|-----|
 | REQ-ALT-001 | 006 | Leak alert raised | Alert creation flow | SW-012 |
-| REQ-ALT-002 | 006 | — | Alert creation flow | SW-011 |
+| REQ-ALT-002 | 006 | Reservoir low alert | Alert creation flow | SW-011 |
 | REQ-ALT-003 | 006 | Module offline alert | — | — |
 | REQ-ALT-004 | 006 | Pump fault alert | — | — |
-| REQ-ALT-005 | 006 | — | — | — |
+| REQ-ALT-005 | 006 | Water too warm alert | — | — |
 | REQ-ALT-006 | 006 | Filter maintenance reminder | Maintenance reminder evaluation | — |
+| REQ-ALT-010 | 006 | — | Maintenance reminder evaluation | — |
 | REQ-ALT-007 | 006 | Operator acknowledges alert | Acknowledgement | — |
 | REQ-ALT-008 | 006 | Leak alert raised | Alert creation flow | SW-012 |
 | REQ-ALT-009 | 006 | Duplicate alert deduplicated | Alert creation flow | — |
@@ -111,6 +113,8 @@ Maps every requirement ID to its feature spec, Gherkin scenario, sequence diagra
 | REQ-ENV-006 | 007 | Dashboard shows environment readings | Environment sensor ingestion | — |
 | REQ-ENV-007 | 007 | — | — | — |
 | REQ-ENV-008 | 007 | — | — | — |
+| REQ-ENV-009 | 007 | Humidity low alert | Environment sensor ingestion | — |
+| REQ-ENV-010 | 007 | Humidity high alert | Environment sensor ingestion | — |
 
 ## 008 — Meshtastic status and alerts
 
@@ -140,12 +144,24 @@ Maps every requirement ID to its feature spec, Gherkin scenario, sequence diagra
 
 ## Constitution / safety (cross-cutting)
 
-| REQ ID | Feature | Gherkin scenario | Sequence | MVP |
-|--------|---------|------------------|----------|-----|
-| REQ-SAF-M01–M07 | 005 | Multiple | Module bus timeout | HW-009–012 |
-| REQ-SAF-H01–H04 | 005 | Leak blocks all watering | Leak detection | SW-010, SW-011 |
-| REQ-SAF-E01–E03 | — | — | — | HW-003 |
-| REQ-WQ-01–04 | — | — | — | HW-006 |
+| Constitution ID | Feature spec ID | Feature | MVP |
+|-----------------|-----------------|--------|-----|
+| REQ-SAF-M01 | REQ-SAF-001 | 005 | HW-011 |
+| REQ-SAF-M02 | REQ-SAF-002 | 005 | HW-012 |
+| REQ-SAF-M03 | REQ-SAF-003 | 005 | HW-009 |
+| REQ-SAF-M04 | REQ-SAF-004 | 005 | HW-010 |
+| REQ-SAF-M05 | REQ-SAF-005 | 005 | — |
+| REQ-SAF-M06 | REQ-SAF-006 | 005 | — |
+| REQ-SAF-M07 | REQ-SAF-007 | 005 | — |
+| REQ-SAF-H01 | REQ-SAF-008 | 005 | — |
+| REQ-SAF-H02 | REQ-SAF-009 | 005 | SW-010 |
+| REQ-SAF-H03 | REQ-SAF-010 | 005 | SW-011 |
+| REQ-SAF-H04 | REQ-MAN-005, REQ-DIS-010 | 003, 001 | SW-007 |
+| REQ-SAF-E01–E07 | — | electrical-safety.md | HW-003 |
+| REQ-WQ-01–04 | — | constitution | HW-006 |
+| REQ-WQ-05–11 | — | water-quality.md | — |
+| REQ-SAF-M08–M10 | — | safety-requirements.md | — |
+| REQ-SAF-H05–H06 | REQ-AUT-004, REQ-AUT-005 | 004 | SW-009 |
 
 ## Hardware reference requirements
 

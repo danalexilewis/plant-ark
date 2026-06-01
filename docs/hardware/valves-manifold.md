@@ -68,7 +68,7 @@ End fittings: adjustable dripper (plant mode) or bar/spike (seedling zone mode).
 
 | Parameter | Typical value |
 |-----------|---------------|
-| Valve voltage | 12V or 24V DC (match module design) |
+| Valve voltage | 12V DC (v1 prototype — buck from 24V PlantBus input) |
 | Hold current | Only during watering burst |
 | Driver | MOSFET low-side switch per valve |
 | Flyback diode | Required per valve coil |

@@ -51,3 +51,18 @@ Feature: Automated watering
     And plant "Tomato seedlings" has received 1 dose today
     When the automation engine evaluates channels
     Then the Hub shall queue another WATER command for channel "pm-8f3a91c2/1"
+
+  Scenario: Automation skips offline module
+    Given module "pm-8f3a91c2" status is offline
+    And channel "pm-8f3a91c2/1" moisture_norm is 0.35
+    When the automation engine evaluates channels
+    Then no WATER command shall be sent for channel "pm-8f3a91c2/1"
+    And the Hub shall log decision skip reason "module_offline"
+
+  Scenario: Quiet hours critical override waters plant
+    Given channel "pm-8f3a91c2/1" moisture_norm is 0.30
+    And plant "Tomato seedlings" has targetMoistureMin 0.42
+    And plant "Tomato seedlings" has quietHours 22:00 to 07:00
+    And the current time is 23:30
+    When the automation engine evaluates channels
+    Then the Hub shall queue a WATER command for channel "pm-8f3a91c2/1"

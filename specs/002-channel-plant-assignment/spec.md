@@ -19,6 +19,7 @@ Operators assign plants to module channels, configure watering profiles, and set
 
 - REQ-CHN-001 (Ubiquitous): Each channel shall support at most one assigned plant.
 - REQ-CHN-002 (Ubiquitous): Each channel shall have a mode of either pot or seedling-zone.
+- REQ-CHN-009 (Ubiquitous): When channel mode is pot, the Hub shall expect one drip emitter per channel. When mode is seedling-zone, the Hub shall expect zone watering (drip bar or capillary strip per [open questions](../../roadmap/open-questions.md) Q4). Mode affects hardware setup documentation shown in the UI but does not change automation logic in v1.
 - REQ-CHN-003 (Ubiquitous): Each channel shall have an enabled flag defaulting to true.
 
 ### Event-driven
@@ -30,7 +31,7 @@ Operators assign plants to module channels, configure watering profiles, and set
 
 ### Optional
 
-- REQ-CHN-008 (Optional): Where quiet hours are configured on a plant, the Hub shall suppress automated watering for that plant during quiet hours unless moisture is critically low.
+- REQ-CHN-008 (Optional): Where quiet hours are configured on a plant, the Hub shall suppress automated watering for that plant during quiet hours unless moisture is critically low (below `targetMoistureMin - 0.10` per REQ-AUT-004).
 
 ## Acceptance criteria
 

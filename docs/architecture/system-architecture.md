@@ -45,7 +45,7 @@ flowchart TB
 | Plant deck | Supports pots or seedling inserts, drains to tray | 1 removable deck |
 | Grow tent | Reflective soft cover, access, vents | 1 tent |
 | Irrigation module | 4-channel pump/valve/sensor unit | 1–2 modules (4–8 channels) |
-| Home Plant Hub | Discovery, automation, UI, logging | 1 hub |
+| Home Plant Hub | Discovery, automation, UI, logging, environment sensors (BME280) | 1 hub |
 | Meshtastic node | Optional status/alerts | Optional |
 
 ## Operating modes
@@ -68,12 +68,12 @@ The same cart, tray, controller, and modules support both modes. The user swaps 
 
 ```mermaid
 flowchart LR
-    subgraph modules [PlantBus modules]
+    subgraph modules [PlantBus modules v1]
         IM[Irrigation module 4ch]
-        EM[Environment module]
     end
 
     subgraph hub [Home Plant Hub]
+        BME[BME280 tent sensor]
         PBS[plantbus-service]
         API[hub-api]
         AUTO[automation-engine]
@@ -83,7 +83,7 @@ flowchart LR
     end
 
     IM -->|CAN 24V| PBS
-    EM -->|CAN 24V| PBS
+    BME --> API
     PBS --> API
     API --> AUTO
     API --> DB
@@ -92,7 +92,11 @@ flowchart LR
     API --> MESH
 ```
 
+v2+ may add a dedicated **environment module** on PlantBus. v1 reads tent temperature and humidity from a BME280 connected directly to the Hub.
+
 ## Module topology (top view)
+
+v1 target: **1–2 modules** (4–8 channels). Long-term: up to 5 modules × 4 channels = 20 plants/zones.
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -100,12 +104,11 @@ flowchart LR
 │                                             │
 │  plants / seedlings                         │
 │                                             │
-├───────┬───────┬───────┬───────┬─────────────┤
-│ mod 1 │ mod 2 │ mod 3 │ mod 4 │ controller  │
-└───────┴───────┴───────┴───────┴─────────────┘
+├───────────┬───────────┬─────────────────────┤
+│  mod 1    │  mod 2    │  controller (Hub)   │  ← v1: 1–2 modules shown
+└───────────┴───────────┴─────────────────────┘
+     (long-term: up to mod 5 along tray edge)
 ```
-
-v1 target: 1–2 modules (4–8 channels). Long-term: up to 5 modules × 4 channels = 20 plants/zones.
 
 ## User setup flow
 

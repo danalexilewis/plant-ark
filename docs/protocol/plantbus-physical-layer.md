@@ -17,12 +17,14 @@ Electrical and mechanical specification for PlantBus cabling and connectors.
 
 **Use Ethernet cable for convenience. Do NOT use Ethernet protocol. Do NOT use PoE. Label all connectors: PLANTBUS — NOT ETHERNET.**
 
-| Pair | Pin (T568B) | Signal | Notes |
-|------|-------------|--------|-------|
-| Pair 1 | 1, 2 | CAN-H, CAN-L | Twisted pair |
-| Pair 2 | 3, 6 | +24V, +24V | Parallel for current capacity |
-| Pair 3 | 4, 5 | GND, GND | Parallel for return |
-| Pair 4 | 7, 8 | Spare, E-stop | Emergency stop or future use |
+| Pair | Pin (T568B) | Signal | Wire colour (T568B) | Notes |
+|------|-------------|--------|---------------------|-------|
+| Pair 1 | 1, 2 | +24V, +24V | Orange-white, Orange | Parallel for current capacity (~1.5 A per pair) |
+| Pair 2 | 3, 6 | CAN-H, CAN-L | Green-white, Green | Twisted pair — data only |
+| Pair 3 | 4, 5 | GND, GND | Blue, Blue-white | Parallel for return |
+| Pair 4 | 7, 8 | Spare, E-stop | Brown-white, Brown | Emergency stop or future use |
+
+This pinout is the **canonical PlantBus RJ45 mapping**. All wiring diagrams, BOM references, and onboarding docs must match this table. The M12 production connector uses the same logical signals (+24V, GND, CAN-H, CAN-L).
 
 ### Wiring diagram
 
@@ -34,8 +36,8 @@ flowchart LR
     end
 
     subgraph cable [Cat5e/Cat6 cable]
-        CANP[Pair 1: CAN-H/L]
-        VP[Pair 2: +24V]
+        VP[Pair 1: +24V]
+        CANP[Pair 2: CAN-H/L]
         GP[Pair 3: GND]
         SP[Pair 4: spare/E-stop]
     end

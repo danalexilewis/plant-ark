@@ -23,6 +23,7 @@ The Hub raises alerts for fault conditions and maintenance reminders. Operators 
 - REQ-ALT-004 (Event-driven): When pump current exceeds threshold, the Hub shall create a warning pump_fault alert.
 - REQ-ALT-005 (Event-driven): When water temperature exceeds 25 °C, the Hub shall create a warning water_too_warm alert.
 - REQ-ALT-006 (Event-driven): When 30 days have elapsed since last filter cleaning, the Hub shall create an info filter_due alert.
+- REQ-ALT-010 (Event-driven): When 21 days have elapsed since last reservoir water change, the Hub shall create an info reservoir_change_due alert.
 - REQ-ALT-007 (Event-driven): When the operator acknowledges an alert, the Hub shall set acknowledged to true and record the timestamp.
 
 ### Ubiquitous

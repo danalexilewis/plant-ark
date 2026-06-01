@@ -23,7 +23,7 @@ Optional Meshtastic integration via a separate mesh-bridge service. Publishes pe
 
 ### Event-driven
 
-- REQ-MESH-004 (Event-driven): When a critical alert is created, the mesh-bridge shall publish an alert packet immediately (deduplicated).
+- REQ-MESH-004 (Event-driven): When a critical alert is created, the mesh-bridge shall publish an alert packet within 60 seconds (deduplicated).
 - REQ-MESH-005 (Event-driven): When 30 minutes have elapsed since the last summary, the mesh-bridge shall publish a status summary packet.
 
 ### Unwanted behavior

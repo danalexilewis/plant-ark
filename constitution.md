@@ -46,12 +46,16 @@ Plant Ark is a **practical gardening appliance**, not lab equipment or a sci-fi 
 - REQ-SAF-E02 (Ubiquitous): Mains AC wiring shall not enter the tray, tent, or module wet zones.
 - REQ-SAF-E03 (Ubiquitous): Grow light and fan mains control shall use certified smart plugs or properly enclosed relay modules.
 
+Extended electrical requirements (REQ-SAF-E04 through REQ-SAF-E07) are defined in [electrical-safety.md](docs/safety/electrical-safety.md).
+
 ## Water quality non-negotiables
 
 - REQ-WQ-01 (Ubiquitous): The reservoir tray shall be opaque to block light.
 - REQ-WQ-02 (Ubiquitous): The system shall filter particles via coarse screen, sponge prefilter, and inline mesh filter.
 - REQ-WQ-03 (Ubiquitous): The system shall monitor water temperature and reservoir level.
 - REQ-WQ-04 (Ubiquitous): The system shall not use ozone in v1.
+
+Extended water-quality requirements (REQ-WQ-05 through REQ-WQ-11) are defined in [water-quality.md](docs/safety/water-quality.md).
 
 ## Non-goals for v1
 
@@ -75,6 +79,7 @@ Do not specify or implement these in v1:
 3. Every computational workflow has a **mermaid sequence diagram**.
 4. Every `REQ-*` ID appears in `acceptance/traceability.md`.
 5. Open design questions record the brief's preferred answer unless superseded by a decision record.
+6. Constitution safety IDs (`REQ-SAF-M##`, `REQ-SAF-H##`) map to feature-spec IDs (`REQ-SAF-0NN`) via the [safety requirements crosswalk](docs/safety/safety-requirements.md#constitution-crosswalk). Do not renumber or reuse IDs across layers.
 
 ## Technology preferences (for future implementation)
 
@@ -95,6 +100,8 @@ These guide implementation specs but are not binding on the documentation build:
 ## Related documents
 
 - [Glossary](docs/glossary.md)
+- [Product brief](product/product-brief.md)
+- [Risk register](risks/risk-register.md)
 - [System architecture](docs/architecture/system-architecture.md)
-- [Safety requirements](docs/safety/safety-requirements.md)
+- [Safety requirements](docs/safety/safety-requirements.md) — includes constitution ↔ feature-spec ID crosswalk
 - [Non-goals](roadmap/non-goals.md)

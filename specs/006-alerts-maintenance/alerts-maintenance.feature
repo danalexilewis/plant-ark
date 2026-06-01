@@ -36,3 +36,11 @@ Feature: Alerts and maintenance
   Scenario: Pump fault alert
     Given module "pm-8f3a91c2" reports pump_current_ma 1600
     Then the Hub shall create a warning alert type pump_fault
+
+  Scenario: Reservoir low alert
+    When module "pm-8f3a91c2" reports water_level low
+    Then the Hub shall create a warning alert type reservoir_low
+
+  Scenario: Water too warm alert
+    Given module "pm-8f3a91c2" reports water_temp_c 26.5
+    Then the Hub shall create a warning alert type water_too_warm
