@@ -42,6 +42,7 @@ This repository is a **spec-driven development (SDD)** project. The current deli
 
 - [Constitution](constitution.md) — non-negotiable principles, safety rules, non-goals
 - [Glossary](docs/glossary.md) — terms and acronyms
+- [License](LICENSE) — free non-commercial use (CC BY-NC-SA 4.0); [commercial use requires a purchased license](COMMERCIAL-LICENSE.md)
 
 ### Reference library (`docs/`)
 
@@ -78,6 +79,12 @@ See [specs/README.md](specs/README.md) for the full feature index.
 - [Traceability matrix](acceptance/traceability.md)
 - [V1 scope](roadmap/v1-scope.md) · [Open questions](roadmap/open-questions.md) · [Non-goals](roadmap/non-goals.md) · [Future](roadmap/future.md) · [Commercialisation](roadmap/commercialisation.md)
 
+## License
+
+**Non-commercial use:** free under [Creative Commons BY-NC-SA 4.0](LICENSE) — attribution required; share adaptations under the same license.
+
+**Commercial use:** requires a [purchased commercial license](COMMERCIAL-LICENSE.md) from the Plant Ark rights holders. Manufacturing, retail, SaaS, and paid consulting based on this work are not covered by the CC license.
+
 ## Methodology
 
 This project follows lightweight spec-driven development:
@@ -111,3 +118,7 @@ Plant Ark combines:
 **Modes:** Seedling mode (zone watering) and plant mode (one channel per pot) using the same hardware with different deck inserts and tubing layouts.
 
 **Technical one-liner:** A local-first modular plant-care platform using 24V PlantBus, 4-channel irrigation modules, recirculating tray reservoirs, and optional Meshtastic alerts.
+
+## License
+
+Plant Ark is free for non-commercial use under the [Prosperity Public License 3.0.0](LICENSE), which includes a 30-day commercial trial. Commercial use beyond the trial requires a [purchased commercial license](COMMERCIAL-LICENSE.md) from us.
